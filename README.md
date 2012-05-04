@@ -6,7 +6,6 @@ A small example:
     class Product < ActiveRecord::Base
       # hstore column is named 'properties'
       hstore_attributes :properties, :integer, :width, :height, :depth, :weight
-      hstore_attribute :properties, :date, :revision_date
       
       validates_numericality_of :weight
       

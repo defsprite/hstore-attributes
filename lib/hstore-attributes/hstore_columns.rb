@@ -20,7 +20,7 @@ module HstoreColumns
 
   module ClassMethods
     
-    def hstore_attribute(hstore_column, attr_name, type)
+    def hstore_attribute(hstore_column, attr_name, type = :string)
       column                      = ActiveRecord::ConnectionAdapters::HstoreMetaColumn.new(attr_name, nil, "#{type}")
       columns_hash[attr_name.to_s]= column
       cast_code                   = column.type_cast_code('v')
@@ -31,7 +31,7 @@ module HstoreColumns
       RUBY
     end
 
-    def hstore_attributes(hstore_column, type = :string, *attrs)
+    def hstore_attributes(hstore_column, type, *attrs)
       attrs.each { |attr| hstore_attribute hstore_column, attr, type.to_sym }
     end
 
