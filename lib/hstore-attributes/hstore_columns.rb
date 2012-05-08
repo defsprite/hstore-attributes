@@ -27,7 +27,7 @@ module HstoreColumns
       access_code                 = "(v=read_hstore('#{attr_name}', '#{hstore_column}')) && #{cast_code}"
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
             def #{attr_name}; #{access_code}; end
-            def #{attr_name}= value; write_hstore('#{attr_name}', '#{hstore_column}', value); end
+            def #{attr_name}= value; write_hstore('#{attr_name}', value, '#{hstore_column}'); end
       RUBY
     end
 
