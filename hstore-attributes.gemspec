@@ -4,12 +4,17 @@ Gem::Specification.new do |gem|
   gem.email         = ["christoph.sassenberg@googlemail.com"]
   gem.description   = %q{ActiveRecord meta attributes that are mapped to a single (or multiple) hstore columns in postgres}
   gem.summary       = %q{ActiveRecord meta attributes that are mapped to a single (or multiple) hstore columns in postgres}
-  gem.homepage      = ""
+  gem.homepage      = "http://github.com/defsprite/hstore-attributes"
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         = `bash -l -c "git ls-files"`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "hstore-attributes"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.1"
+  gem.version       = "0.0.2"
+  
+  gem.add_dependency('pg')
+  gem.add_dependency('activerecord', '>= 3.0')
+  gem.add_dependency('activerecord-postgres-hstore')
+  
 end

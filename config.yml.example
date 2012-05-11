@@ -1,0 +1,4 @@
+# adapter is set to postgresql anyway, as this is a pg only feature.
+database: hstore_test
+user: postgres
+password:
