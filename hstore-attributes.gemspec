@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{ActiveRecord meta attributes that are mapped to a single (or multiple) hstore columns in postgres}
   gem.homepage      = "http://github.com/defsprite/hstore-attributes"
 
-  gem.files         = `bash -l -c "git ls-files"`.split($\)
+  gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "hstore-attributes"
