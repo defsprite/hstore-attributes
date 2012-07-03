@@ -1,18 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
-class HstoreModel < ActiveRecord::Base
-  hstore :data, accessors: {:color => :string, :homepage => :string, :available_on => :date}
-  hstore :data, accessors: [:other_color, :other_homepage]
 
-  hstore :data, accessors: {:string_test => :string, :date_test => :date, :datetime_test => :datetime, :integer_test => :integer}
-
-end
-
-class HstoreTest < MiniTest::Unit::TestCase
+class HstoreTest < MiniTest::Spec
 
   def setup
     @connection = ActiveRecord::Base.connection
-    puts @connection.native_database_types
 
     begin
       @connection.execute 'drop table if exists hstore_models'
@@ -24,11 +16,20 @@ class HstoreTest < MiniTest::Unit::TestCase
       end
 
     rescue ActiveRecord::StatementInvalid => e
-      skip "ActiveRecord::StatementInvalid during table setup. Is your DB hstore capable at all? Error was: #{e}"
+      puts "--------------------------------------------------"
+      puts "ActiveRecord::StatementInvalid during table setup. Is your DB hstore capable at all? Error was: #{e}"
+      puts "--------------------------------------------------"
+      exit
     rescue NoMethodError => e
-      skip "NoMethodError during table setup. Is your DB hstore capable at all? Error was: #{e}"
+      puts "--------------------------------------------------"
+      puts "NoMethodError during table setup. Is your DB hstore capable at all? Error was: #{e}"
+      puts "--------------------------------------------------"
+      exit
     end
+
+    require_relative 'hstore_model'
   end
+
 
   def teardown
     @connection.execute 'drop table if exists hstore_models'
@@ -36,13 +37,11 @@ class HstoreTest < MiniTest::Unit::TestCase
 
   describe "the hstore attribute mapper" do
 
+
     before do
       @record = HstoreModel.create(:name => 'John Doe')
     end
 
-    after do
-      HstoreModel.delete_all
-    end
 
     it "should have the right column type" do
       column = HstoreModel.columns.find { |c| c.name == 'data' }
