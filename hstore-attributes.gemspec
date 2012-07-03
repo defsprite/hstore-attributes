@@ -11,10 +11,10 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "hstore-attributes"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.2"
-  
+  gem.version       = "0.0.3"
+
   gem.add_dependency('pg')
   gem.add_dependency('activerecord', '>= 3.0')
   gem.add_dependency('activerecord-postgres-hstore')
-  
+
 end
