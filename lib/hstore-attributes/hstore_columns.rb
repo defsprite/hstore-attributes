@@ -23,7 +23,7 @@ module HstoreColumns
       return unless table_exists?
       column                      = ActiveRecord::ConnectionAdapters::Column.new(attr_name, nil, "#{type}")
       columns_hash[attr_name.to_s]= column
-      cast_code                   = column.type_cast_code('v')
+      cast_code                   = column.type_cast('v')
       access_code                 = "(v=read_hstore('#{attr_name}', '#{hstore_column}')) && #{cast_code}"
 
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
