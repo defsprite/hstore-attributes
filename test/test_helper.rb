@@ -13,4 +13,4 @@ require 'minitest/autorun'
 require File.expand_path('../lib/hstore-attributes', File.dirname(__FILE__))
 
 require 'yaml'
-ActiveRecord::Base.establish_connection(YAML::load(File.open(File.expand_path('../config.yml', File.dirname(__FILE__)))))
+ActiveRecord::Base.establish_connection(YAML::load(File.open(File.expand_path('config.yml', File.dirname(__FILE__)))))

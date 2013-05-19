@@ -1,11 +1,9 @@
-require File.expand_path(File.dirname(__FILE__) + '/test_helper')
-
+require 'test_helper'
 
 class HstoreTest < MiniTest::Spec
 
   def setup
     @connection = ActiveRecord::Base.connection
-
     begin
       @connection.execute 'drop table if exists hstore_models'
       @connection.transaction do
@@ -37,11 +35,9 @@ class HstoreTest < MiniTest::Spec
 
   describe "the hstore attribute mapper" do
 
-
     before do
       @record = HstoreModel.create(:name => 'John Doe')
     end
-
 
     it "should have the right column type" do
       column = HstoreModel.columns.find { |c| c.name == 'data' }
