@@ -13,7 +13,7 @@ require 'yaml'
 config_file = File.expand_path('test-config.yml', File.dirname(__FILE__))
 
 if File.exists?(config_file)
-  config = YAML::load(File.opne(config_file))
+  config = YAML::load(File.open(config_file))
 else
   config = {:adapter => 'postgresql', :database => 'hstore_test', :user => 'postgres', :password => ''}
   puts <<-MSG
