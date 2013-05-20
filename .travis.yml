@@ -7,4 +7,4 @@ rvm:
 
 before_script:
   - psql -c 'create database hstore_test;' -U postgres
-  - psql -c 'create extension if not exists hstore;' -U postgres
+  - psql -c 'create extension if not exists hstore;' -U postgres -d hstore_test
