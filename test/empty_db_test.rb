@@ -10,7 +10,7 @@ class EmptyDbTest < MiniTest::Unit::TestCase
         class OtherHstoreModel < ActiveRecord::Base
           serialize :data, ActiveRecord::Coders::Hstore
 
-          hstore :data, accessors: {:color => :string, :homepage => :string, :available_on => :date}
+          hstore :data, :accessors => {:color => :string, :homepage => :string, :available_on => :date}
         end
 
       end
