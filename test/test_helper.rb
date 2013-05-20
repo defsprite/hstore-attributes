@@ -1,13 +1,9 @@
 require 'bundler/setup'
 require 'active_record'
 
-ActiveSupport.on_load :active_record do
-  require 'active_record/connection_adapters/postgresql_adapter'
-  require "activerecord-postgres-hstore/activerecord"
-end
-
-require 'activerecord-postgres-hstore/hash'
-require 'activerecord-postgres-hstore/string'
+# explicitly require beforehand - activerecord-postgres-hstore is mostly monkeypatched.
+require 'active_record/connection_adapters/postgresql_adapter'
+require 'activerecord-postgres-hstore'
 
 require 'minitest/autorun'
 require File.expand_path('../lib/hstore-attributes', File.dirname(__FILE__))

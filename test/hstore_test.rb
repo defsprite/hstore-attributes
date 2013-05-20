@@ -9,7 +9,7 @@ class HstoreTest < MiniTest::Spec
       @connection.transaction do
         @connection.create_table('hstore_models') do |t|
           t.string :name
-          t.hstore :data, :default => ''
+          t.hstore :data
         end
       end
 
