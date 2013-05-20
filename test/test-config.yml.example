@@ -1,0 +1,5 @@
+# edit and rename to test-config.yml in order to specify a different DB
+adapter: postgresql
+database: hstore_test
+user: postgresql
+password:

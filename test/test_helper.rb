@@ -9,4 +9,19 @@ require 'minitest/autorun'
 require File.expand_path('../lib/hstore-attributes', File.dirname(__FILE__))
 
 require 'yaml'
-ActiveRecord::Base.establish_connection(YAML::load(File.open(File.expand_path('config.yml', File.dirname(__FILE__)))))
+
+config_file = File.expand_path('test-config.yml', File.dirname(__FILE__))
+
+if File.exists?(config_file)
+  config = YAML::load(File.opne(config_file))
+else
+  config = {:adapter => 'postgresql', :database => 'hstore_test', :user => 'postgres', :password => ''}
+  puts <<-MSG
+=======================================================================================================================
+Using default test DB config: #{config.inspect}
+Please see test/test-config.yml.example if you want use a different config
+=======================================================================================================================
+  MSG
+end
+
+ActiveRecord::Base.establish_connection(config)
