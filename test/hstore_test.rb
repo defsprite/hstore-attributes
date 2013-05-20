@@ -18,12 +18,12 @@ class HstoreTest < MiniTest::Spec
       puts "--------------------------------------------------"
       puts "ActiveRecord::StatementInvalid during table setup. Is your DB hstore capable at all? Error was: #{e}"
       puts "--------------------------------------------------"
-      exit
+      abort
     rescue NoMethodError => e
       puts "--------------------------------------------------"
       puts "NoMethodError during table setup. Is your DB hstore capable at all? Error was: #{e}"
       puts "--------------------------------------------------"
-      exit
+      abort
     end
 
     require_relative 'hstore_model'
