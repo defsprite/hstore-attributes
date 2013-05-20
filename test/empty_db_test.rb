@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EmptyDbTest < MiniTest::Unit::TestCase
+class EmptyDbTest < MiniTest::Spec
 
   describe "the hstore attribute mapper" do
 
