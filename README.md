@@ -1,6 +1,6 @@
 # HstoreAttributes
 
-[![Build Status](https://travis-ci.org/defsprite/hstore-attributes.png)](https://travis-ci.org/defsprite/hstore-attributes) [![Code Climate](https://codeclimate.com/github/defsprite/hstore-attributes.png)](https://codeclimate.com/github/defsprite/hstore-attributes.png)
+[![Build Status](https://travis-ci.org/defsprite/hstore-attributes.png)](https://travis-ci.org/defsprite/hstore-attributes) [![Code Climate](https://codeclimate.com/github/defsprite/hstore-attributes.png)](https://codeclimate.com/github/defsprite/hstore-attributes)
 
 
 HstoreAttributes is a small extension on top of `activerecord-postgres-hstore`, which creates "fake" attributes that map into the hstore hash. By defining these attributes you get automatic validations and type casting.
