@@ -30,7 +30,7 @@ module HstoreColumns
       RUBY
       if type == :boolean
         class_eval <<-RUBY, __FILE__, __LINE__ + 1
-          def #{attr_name}?; #{access_code}; end
+          def #{attr_name}?; #{attr_name}; end
         RUBY
       end
     end
