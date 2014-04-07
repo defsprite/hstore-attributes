@@ -45,12 +45,18 @@ class HstoreTest < MiniTest::Spec
       assert_equal :hstore, column.type
     end
 
+    it "should add <column>? method for boolean" do
+      @record.boolean_test_true = true
+      assert_equal true, @record.boolean_test_true?
+    end
+
     it "should read attributes through accessors" do
       assert_equal 'John Doe', @record.name
       assert_nil @record.string_test
       assert_nil @record.date_test
       assert_nil @record.datetime_test
       assert_nil @record.integer_test
+      assert_nil @record.boolean_test
     end
 
     it "should write attributes through accessors" do
@@ -61,11 +67,15 @@ class HstoreTest < MiniTest::Spec
       @record.integer_test  = 42
       @record.date_test     = date
       @record.datetime_test = datetime
+      @record.boolean_test = false
+      @record.boolean_test_true = true
 
       assert_equal 'red', @record.string_test
       assert_equal 42, @record.integer_test
       assert_equal datetime, @record.datetime_test
       assert_equal date, @record.date_test
+      assert_equal false, @record.boolean_test
+      assert_equal true, @record.boolean_test_true
 
     end
 
